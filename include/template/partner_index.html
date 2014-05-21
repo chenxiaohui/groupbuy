@@ -1,0 +1,56 @@
+<!--{include header}-->
+
+<div id="bdw" class="bdw">
+
+<div id="recent-deals">
+
+    <div id="content">
+        <div class="box">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head"><h2>{$pagetitle}</h2></div>
+				<div class="sect">
+					<ul class="partner-index-list">
+					<!--{loop $partners $index $one}-->
+						<li class="partner-li">
+							<div class="pic">
+								<a href="/partner.php?id={$one['id']}" title="{$one['title']}" target="_blank"><img alt="{$one['title']}" src="${team_image($one['image'], true)}" width="200" height="121"></a>
+							</div>
+							<div class="partner-tittle">
+							<h4><a href="/partner.php?id={$one['id']}" title="{$one['title']}" target="_blank">${mb_strimwidth($one['title'],0,86,'...')}</a></h4>
+							<p>地址：${mb_strimwidth($one['address'],0,33,'...','UTF-8')}</p>
+							<p>联系电话：{$one['phone']}</p>
+							</div>
+							<div class="partner-cont">
+								<p>
+								满意度 <strong><!-- {if $one['comment_num']>0} -->{$one['reputation']}%<!-- {else} -->--<!-- {/if} --></strong><br/>
+								<!-- {if $one['comment_num']==0}-->
+								暂无点评<br/>
+								<!-- {else} -->
+								点评数 <strong>{$one['comment_num']}</strong><br/>
+								<!-- {/if} -->
+								<a href="/partner.php?id={$one['id']}" title="{$one['title']}" target="_blank">查看全部点评>></a>
+								</p>
+							</div>
+							<div class="clear"></div>
+						</li>
+					<!--{/loop}-->
+					</ul>
+					<div class="clear"></div>
+					<div>{$pagestring}</div>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+	<div id="sidebar" class="right">
+	
+		<!--{include block_side_vote}-->
+		<!--{include block_side_business}-->
+		<!--{include block_side_subscribe}-->
+	</div>
+</div>
+ 
+</div> <!-- bdw end -->
+
+<!--{include footer}-->

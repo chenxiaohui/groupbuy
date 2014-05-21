@@ -1,0 +1,150 @@
+<!--{include header}-->
+<div class="ty_main">
+<div class="ty_left" id="deal-buy">
+	<div class="ty_left_sign"></div>
+    <div class="ty_left_p">1.订单提交<span>2.选择支付方式</span>3.支付成功</div>
+    
+    <div class="sect">
+                <table class="order-table">
+                    <tr>
+                        <th class="deal-buy-desc" width="100">项目名称</th>
+                        <th class="deal-buy-price">成人价格</th>
+                        <th class="deal-buy-price">儿童价格</th>
+                        <th class="deal-buy-quantity">成人数量</th>
+                        <th class="deal-buy-quantity">儿童数量</th>
+                        <th class="deal-buy-total">总价</th>
+                    </tr>
+                    <tr>
+                        <td class="deal-buy-desc" width="100">{$team['title']}</td>
+                        <td class="deal-buy-price" id="deal-buy-price"><span class="money">{$currency}<span>${moneyit($order['adult_price'])}</td>
+                        <td class="deal-buy-price" id="deal-buy-price"><span class="money">{$currency}<span>${moneyit($order['child_price'])}</td>
+                        <td class="deal-buy-quantity">{$order['adult_num']}</td>
+                        <td class="deal-buy-quantity">{$order['child_num']}</td>
+                        <td class="deal-buy-total" id="deal-buy-t"><span class="money">{$currency}
+                        	</span>${moneyit($order['adult_price']*$order['adult_num'] + $order['child_price'] * $order['child_num'])}</td>
+                    </tr>              
+					<!--{if $team['delivery']=='express'}-->
+					<tr>
+						<td class="deal-buy-desc">快递</td>
+						<td class="deal-buy-quantity"></td>
+						<td class="deal-buy-multi"></td>
+						<td class="deal-buy-price"><span class="money">{$currency}</span><span id="deal-express-price">{$order['fare']}</span></td>
+						<td class="deal-buy-equal">=</td>
+						<td class="deal-buy-total"><span class="money">{$currency}</span><span id="deal-express-total">${($team['farefree']==0||($order['quantity'] + $order['extrabuy'])<$team['farefree'])?$order['fare']:0}</span></td>
+					</tr>
+					<!--{/if}-->
+					<!--{if $order['card']>0}-->
+				   <tr id="cardcode-row">
+						<td class="deal-buy-desc">代金券：<span id="cardcode-row-n">{$order['card_id']}</span></td>
+						<td class="deal-buy-quantity"></td>
+						<td class="deal-buy-multi"></td>
+
+						<td class="deal-buy-price"><span class="money">{$currency}</span>${moneyit($order['card'])}</td>
+						<td class="deal-buy-equal">=</td>
+						<td class="deal-buy-total">-<span class="money">¥</span><span id="cardcode-row-t">{$order['card']}</span></td>
+					</tr>
+					<!--{/if}-->
+
+					<tr class="order-total">
+                        <td class="deal-buy-desc"><strong>应付总额：</strong></td>
+                        <td class="deal-buy-quantity"></td>
+                        <td class="deal-buy-multi"></td>
+                        <td class="deal-buy-price"></td>
+                        <td class="deal-buy-equal">=</td>
+                        <td class="deal-buy-total"><span class="money">{$currency}</span>{$order['origin']}</td>
+                    </tr>
+                </table>
+				<div class="paytype">
+                <form action="/order/pay.php" method="post" class="validator">
+				<div class="order-check-form ">
+					<div class="order-pay-credit">
+						<h3>您的余额</h3>
+						<p>账户余额：<strong><span class="money">{$currency}</span>${moneyit($login_user['money'])}</strong></p>
+						<h3>您的金币</h3>
+						<p>金币数目：<strong><span class="money">{$currency}</span>${moneyit($login_user['goldcoin'])}</strong></p>
+						<p> 
+						<!-- {if $tmp_goldcoin < $login_user['goldcoin']} -->
+						本项目可用金币数目：<strong><span class="money">{$currency}</span>${moneyit($tmp_goldcoin)}</strong>，
+						<!-- {/if} -->
+						<!--{if false==$credityes}-->您的余额不够完成本次付款，还需支付 <strong><span class="money">{$currency}</span>${moneyit($order['origin']-$login_user['money']-$tmp_goldcoin)}</strong>。<!--{if $creditonly}-->请赶紧去<a href="/credit/charge.php">充值</a>。<!--{else}-->请选择支付方式：<!--{/if}--><!--{else}-->您的余额足够本次购买，请直接确认订单，完成付款。<!--{/if}--></p>
+						<div class="other_pay">{$INI['other']['pay']}</div>
+					</div>  
+
+				<!--{if false==$creditonly && false==$credityes}-->
+					<ul class="typelist">
+					<!--{if $INI['alipay']['mid']}-->
+						<li><input id="check-alipay" type="radio" name="paytype" value="alipay" {$ordercheck['alipay']} /><label for="check-alipay" class="alipay">支付宝交易，推荐淘宝用户使用</label></li>
+					<!--{/if}-->
+					<!--{if $INI['tenpay']['mid']}-->
+						<li><input id="check-tenpay" type="radio" name="paytype" value="tenpay" {$ordercheck['tenpay']} /><label for="check-tenpay" class="tenpay">财付通交易，推荐拍拍用户使用</label></li>
+					<!--{/if}-->
+					<!--{if $INI['yeepay']['mid']}-->
+						<li><input id="check-yeepay" type="radio" name="paytype" value="yeepay" {$ordercheck['yeepay']} /><label for="check-yeepay" class="yeepay">易宝支付，人民币支付网关</label></li>
+					<!--{/if}-->
+					<!--{if $INI['bill']['mid']}-->
+						<li><input id="check-bill" type="radio" name="paytype" value="bill" {$ordercheck['bill']} /><label for="check-bill" class="bill">快钱交易，助您生活娱乐更加便捷</label></li>
+					<!--{/if}-->
+					<!--{if $INI['chinabank']['mid']}-->
+						<li><input id="check-chinabank" type="radio" name="paytype" value="chinabank" {$ordercheck['chinabank']} /><label for="check-chinabank" class="chinabank">网银支付交易，支持招商、工行、建行、中行等主流银行</label></li>
+					<!--{/if}-->
+					<!--{if $INI['paypal']['mid']}-->
+						<li><input id="check-paypal" type="radio" name="paytype" value="paypal" {$ordercheck['paypal']} /><label for="check-paypal" class="paypal">PayPal, Recommended</label></li>
+					<!--{/if}-->
+					<!-- {if $INI['ipspay']['mid']} -->
+						<li><input id="check-ipspay" type="radio" name="paytype" value="ipspay" {$ordercheck['ipspay']}/><label for="check-ipspay" class="ipspay">环讯网银支付</label></li>
+					<!-- {/if} -->
+					<!-- {if $INI['ipscardpay']['mid']} -->
+						<li><input id="check-ipscardpay" type="radio" name="paytype" value="ipscardpay" {$ordercheck['ipscardpay']}/><label for="check-ipspay" class="ipspay">环讯信用卡支付</label></li>
+					<!-- {/if} -->
+					</ul>
+
+		<!--{if $INI['tenpay']['mid']&&'Y'==$INI['tenpay']['direct']}-->
+					<div id="paybank">
+						<!--{loop $paybank $one}-->
+						<p><input id="check-{$one}" type="radio" name="paytype" value="{$one}" /><label for="check-{$one}" class="{$one}"></label></p>
+						<!--{/loop}-->
+					</div>  
+		<!--{/if}-->
+
+		<!--{if $INI['yeepay']['mid']&&'Y'==$INI['yeepay']['direct']}-->
+					<div id="paybank">
+						<!--{loop $yeepaybank $one $pid}-->
+						<p><input id="check-{$one}" type="radio" name="paytype" value="{$pid}" /><label for="check-{$one}" class="{$one}"></label></p>
+						<!--{/loop}-->
+					</div>  
+		<!--{/if}-->
+
+					<!--{else}-->
+					<input type="hidden" name="paytype" value="credit" />
+					<!--{/if}-->
+
+					<!--{if $credityes || false==$creditonly}-->
+					<div class="clear"></div>
+					<p class="check-act">
+					<input type="hidden" name="order_id" value="{$order['id']}" />
+					<input type="hidden" name="team_id" value="{$order['team_id']}" />
+					<input type="hidden" name="cardcode" value="" />
+					<input type="hidden" name="quantity" value="{$order['quantity']}" />
+					<input type="hidden" name="address" value="{$order['address']}" />
+					<input type="hidden" name="express" value="{$order['express']}" />
+					<input type="hidden" name="remark" value="{$order['remark']}" />
+					<input type="submit" value="确认订单，付款" class="formbutton" />
+					<!--{if false==$credityes}-->
+					<input type="button" value="确认订单，以后再付款" class="formbutton" onclick="location.href='index.php';" />
+					<!--{/if}-->
+					<a href="/team/buy.php?id={$order['team_id']}" style="margin-left:1em;">返回修改订单</a>
+					<!--{/if}-->
+					</p>
+					</div>
+					</form>
+					</div>
+					</div>
+</div>
+<div class="ty_right" id="sidebar">
+<!--{if !$order['card_id']}-->
+					<!--{include block_side_card}-->
+					<!--{/if}-->
+</div>
+<div class="clear"></div>
+</div>
+					<!--{include footer}-->

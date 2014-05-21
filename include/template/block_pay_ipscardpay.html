@@ -1,0 +1,48 @@
+<form id="order-pay-form" method="post" action="ipscardpay/redirect_ipscardpay.php" target="_blank" sid="{$order_id}">
+	<div class="field">
+    <label>持卡人姓名</label>
+    <input type="text" size="30" name="cardHoldname" class="f-input" value=""/>
+	</div>
+	<div class="field">
+    <label>持卡人证件类型</label>
+           <select name="cardHoldidtype" class ="f-input" >
+             <option value="1" >身份证</option>
+             <option value="2" >护照</option>
+             <option value="3" >军官证</option>
+             <option value="4" >回乡证</option>
+             <option value="5" >台胞证</option>
+             <option value="6" >港澳通行证</option>
+             <option value="7" >国际海员证</option>
+             <option value="8" >外国人永久居住证</option>
+             <option value="9" >其他</option>
+           </select>
+	</div>
+	<div class="field">
+    <label>持卡人证件号码</label>
+    <input type="text" size="30"  name="cardHoldidnum" class="f-input" value=""/>
+	</div>
+	<div class="field">
+    <label>持卡人电话</label>
+    <input type="text" size="30"  name="cardHoldphone" class="f-input" value=""/>
+	</div>
+      <input type="hidden" name="pBillNo" value="{$pBillNo}" />
+      <input type="hidden" name="pMerCode" value="{$pMerCode}" />
+      <input type="hidden" name="pCurrency" value="{$pCurrency}" />
+      <input type="hidden" name="pLang" value="{$pLang}" />
+      <input type="hidden" name="pAmount" value="{$pAmount}" />
+      <input type="hidden" name="pDate" value="{$pDate}" />
+      <input type="hidden" name="pAttach" value="{$pAttach}" />
+      <input type="hidden" name="pGateWayType" value="{$pGateWayType}" />
+      <input type="hidden" name="pRetEncodeType" value="{$pRetEncodeType}" />
+      <input type="hidden" name="pOrderEncodeType" value="{$pOrderEncodeType}" />
+      <input type="hidden" name="pSignMD5" value="{$pSignMD5}" />
+      <input type="hidden" name="pAuthority" value="{$pAuthority}" />
+      <input type="hidden" name="pBillEXP" value="{$pBillEXP}" />
+      <input type="hidden" name="pResultType" value="{$pResultType}" />  <!-- //支付结果返回方式,HTTP方式  -->
+      <input type="hidden" name="pReturnUrl" value="{$pReturnUrl}" />
+      <input type="hidden" name="pAuthSuccessUrl" value="{$pAuthSuccessUrl}" />
+      <input type="hidden" name="pAuthFailureUrl" value="{$pAuthFailureUrl}" />
+      <input type="hidden" name="pGoodsInfo" value="{$pGoodsInfo}" />
+      <img src="/static/css/i/ipspay.gif" /><br/>
+	<input type="submit" class="formbutton" value="前往环讯付款" />
+</form>

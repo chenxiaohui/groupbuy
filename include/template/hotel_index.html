@@ -1,0 +1,129 @@
+﻿<!--{include header}-->
+<script type="text/javascript" src = "/static/js/datepicker/WdatePicker.js"></script>
+<script type="text/javascript" src = "/static/js/city.php"></script>
+<script type="text/javascript" src = "/static/js/incity.js"></script>
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+				<div class="sect" style="padding:0 10px;">
+					<form method="get">
+						<p style="font-weight:700" >
+							<span style="margin-left:3px; margin-right:45px">城市：
+								<input id="city_name" onblur="showSearch(this,1)" onkeyup="list.display(this,'cityName',event)" 
+									style="width:150px; height:30px;font-size:16px;"  onfocus="showSearch(this)"  onclick="list.display(this,'cityName',event)" 
+									name="hotelloc" value="{$_REQUEST['hotelloc']}" style="color:#C1C1C1">
+							</span>
+							<span style="margin-left:3px; margin-right:45px">入住日期：
+								<input type="text" style="width:150px; height:30px;font-size:16px;"  onFocus="WdatePicker({isShowClear:false,readOnly:true})"
+											name="timecheckin" value="{$timecheckin}" />
+							</span>
+							<span style="margin-left:3px; margin-right:45px">离开日期：						
+								<input type="text" style="width:150px; height:30px;font-size:16px;" onFocus="WdatePicker({isShowClear:false,readOnly:true})"
+											name="timecheckout" value="{$timecheckout}" />
+							</span>					
+							<span style="margin-left:5px;" >
+								<input type="submit" value="" align="top" style="margin-top:-5px; background:url(static/css/i/searchbar.png) no-repeat;background-position:-140px 0px; height:30px; width:55px"/>
+							</span>
+						
+						</p>
+					</form>
+				</div>
+				<div class="sect" style="padding:0 10px;">
+				<table style="margin: 20px 20px 0px 40px;background:#EFFEAA; border: 1px solid blue; border-collapse:separate">
+				<!-- {loop $hotel $key $value} -->
+				<tr style="padding:1px #FF0000">
+				<td style="width:300px;border-top:3px solid #FFEF00; border-right:3px solid #FFEF00">
+					<div style="display:block;float:left; clear:both;font-weight:bold;font-size:large;">
+						<a href="{$value['hotel_link']}">{$value['hotel_name']}</a>
+					</div>
+					<div style="display:block;float:left; clear:both; margin-top:5px; margin-bottom:5px;padding: 15px;">
+						<span style="color: #FF0000; font-weight:bold">地点：</span>{$value['hotel_loc']}</div>
+					<div style="display:block;float:left; clear:both;padding: 15px;">
+						<span style="color: #FF0000; font-weight:bold"">描述：</span>{$value['hotel_desc']}</div>
+				</td>
+				<td style="width:500px; padding: 15px; font-weight:700;border-top:3px solid #FFEF00;">
+					<input type="hidden"></input>
+					<!-- {if !empty($value['hotel_price'])}-->
+					
+						<table >
+						<tr> <th width="350px">房型</th> <th width="50px">价格</th> <th width="50px">预订</th>  </tr>
+						<!-- {loop $value['hotel_price'] $pricekey $pricevalue }-->
+						<tr>
+							<td style="color: #0069CA">{$pricevalue['room_type']}</td>
+							<td style="color: #FF0000">{$pricevalue['hotel_price']}</td>
+							<!-- {if isset($pricevalue['book_link']) && trim($pricevalue['book_link']) != ''} -->
+								<td><input type="submit" value="预订" onclick="bookhotel('{$pricevalue['book_link']}')" class="formbutton"  style="padding:1px 6px;"></input></td>
+							<!-- {else} -->
+								<td>客房已满</td>
+							<!-- {/if} -->
+						</tr>
+						<!-- {/loop} -->	
+					</table>		
+					<!--{/if}-->
+				</td>
+				</tr>
+				<!--{/loop}-->
+				</table>
+			</div>			
+			</div>			
+	
+	        <div class="box-bottom"></div>
+		{$pagestring}
+        </div>
+    </div>
+</div>
+</div>
+</div> <!-- bd end -->
+<script>
+function bookhotel(link)
+{
+	var searchdate = $('input[name="timecheckin"]').val() + '$2=' + $('input[name="timecheckout"]').val();
+	link = link.replace(/(\d{4}-\d{1,2}-\d{1,2})(.+)=(\d{4}-\d{1,2}-\d{1,2})/i, searchdate);
+	
+	var linkitem = link.split('@');
+
+	if ( linkitem[1] == 'POST' )
+	{	
+		var idx;
+		var param = linkitem[2].split('#');
+		var item = param[0].split('=');
+		var postparam = new Array();
+		for (idx in param)
+		{
+			item = param[idx].split('=');
+			if ( item[0] != '')
+			{
+				postparam[item[0]] = item[1];
+			}
+		}
+		post_to_url(linkitem[0], postparam, 'POST');
+	}
+	else
+		window.open(linkitem[0]);
+}
+function post_to_url(path, params, method) {
+    method = method || "post";
+    //如果没有特别声明，默认post方式
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", key);
+        hiddenField.setAttribute("value", params[key]);
+
+        form.appendChild(hiddenField);
+    }
+
+    document.body.appendChild(form); 
+    form.submit();
+}
+
+</script>
+<!--{include footer}-->

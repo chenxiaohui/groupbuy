@@ -1,0 +1,23 @@
+<?php include template("header");?>
+
+<div class="hy_box" style="margin-top:0px">
+    <div class="hy_left" id="content">
+        
+            <div class="hy_left_a"></div>
+           <div class="hy_left_b">
+                <div class="head"><h2>邀请有奖</h2></div>
+                <div class="sect">
+                <p class="intro">当好友接受您的邀请，在<?php echo $INI['system']['sitename']; ?>上首次成功购买，系统返还 <?php echo $INI['system']['invitecredit']; ?> 元到您的<?php echo $INI['system']['sitename']; ?>电子账户，下次团购时可直接用于支付。没有数量限制，邀请越多，返利越多。</p>
+                            <p class="login">请先 <a href="/account/login.php?r=<?php echo $currefer; ?>">登录</a> 或者 <a href="/account/signup.php">注册</a>，获取您的专用邀请链接。</p>
+        				                </div>
+            </div>
+            <div class="hy_left_c"></div>
+        
+    </div>
+    <div  class="hy_right">
+		<?php include template("block_side_invitetip");?>
+    </div>
+</div>
+
+
+<?php include template("footer");?>

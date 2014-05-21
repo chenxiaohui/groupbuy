@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv=content-type content="text/html; charset=UTF-8" />
+<!--{if !$pagetitle||$request_uri=='index'}-->
+	<title>上海旅游团购、北京旅游团购、酒店门票团购【适合我旅游团购网】</title>
+<!--{else}-->
+	<title>{$pagetitle} | {$INI['system']['sitename']} - {$INI['system']['sitetitle']} {$INI['system']['subtitle']}</title>
+<!--{/if}-->
+
+<!--{if !$pagetitle||$request_uri=='index'}-->
+ <meta name="description" content="适合我旅游团购网，是国内领先的旅游团购网站，专注于旅游产品的团购，为广大游客提供【高品质·超低价·有保障】的旅游产品。总有一团，有惊喜；总有一团，适合我！" />
+<!--{else}-->
+<!--{if $seo_description}-->
+	<meta name="description" content="{$seo_description}" />
+<!--{elseif $team}-->
+	<meta name="description" content="${mb_strimwidth(strip_tags($team['title'] .', '. $team['summary'] .', '. $team['systemreview']), 0, 320)}" />
+<!--{else}-->
+	<meta name="description" content="{$INI['system']['sitetitle']}|{$city['name']}购物|{$city['name']}团购|{$city['name']}打折" />
+<!--{/if}-->
+<!--{/if}-->
+<!--{if !$pagetitle||$request_uri=='index'}-->
+	<meta name="keywords" content="适合我旅游团购，上海旅游团购网，北京旅游团购，酒店门票团购，打折，精品消费，购物指南，消费指南" />
+<!--{else}-->
+<!--{if $seo_keyword}-->
+	<meta name="keywords" content="{$seo_keyword}，{$city['name']}购物，{$city['name']}团购，{$city['name']}打折，团购，打折，精品消费，购物指南，消费指南" />
+<!--{else}-->
+	<meta name="keywords" content="{$INI['system']['sitename']}, {$city['name']}, {$city['name']}{$INI['system']['sitename']}，{$city['name']}购物，{$city['name']}团购，{$city['name']}打折，团购，打折，精品消费，购物指南，消费指南" />
+<!--{/if}-->
+<!--{/if}-->
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<link href="{$INI['system']['wwwprefix']}/feed.php?ename={$city['ename']}" rel="alternate" title="订阅更新" type="application/rss+xml" />
+	<link rel="shortcut icon" href="/static/icon/favicon.ico" />
+	<link rel="stylesheet" href="/static/css/index.css" type="text/css" media="screen" charset="utf-8" />
+	<script type="text/javascript">var WEB_ROOT = '${WEB_ROOT}';</script>
+	<script type="text/javascript">var LOGINUID= ${abs(intval($login_user_id))};</script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script>!window.jQuery && document.write('<script src="/static/js/jquery.js"><\/script>');</script>
+	<script src="/static/js/index.js" type="text/javascript"></script>
+	${Session::Get('script',true);}
+</head>
+<body class="${$request_uri=='index'?'bg-alt':'newbie'}">
+<div id="pagemasker"></div><div id="dialog"></div>
+<div id="doc">

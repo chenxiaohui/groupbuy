@@ -1,0 +1,29 @@
+<!--{include header_nohover}-->
+<div class="hy_box">
+	
+    <div id="content">
+            <div class="hy_left_a"><ul>${current_account('/credit/score.php')}</ul></div>
+           <div class="hy_left_b">
+                <div class="head">
+                    <h2>金币数量</h2>
+                    
+                </div>
+                <div class="sect">
+					<h3 class="credit-title">当前的金币数量是：<strong>${moneyit($login_user['score'])}</strong></h3>
+					<table id="order-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table" width="100%">
+						<tr><th width="auto">产品</th><th width="20%">收支详情</th><th width="20%">金币</th></tr>
+						<!--{loop $credits $index $one}-->
+						<tr ${$index%2?'':'class="alt"'}><td>【北京博泰酒店】178元入住北京市中心酒店</td><td class="{$one['direction']}">点评收入</td><td>20</td></tr>
+						<!--{/loop}-->
+						<tr><td colspan="3">{$pagestring}</td></tr>
+                    </table>
+				</div>
+            </div>
+            <div class="hy_left_c"></div>
+    </div>
+    <div class="hy_right">
+		<!--{include block_side_score}-->
+    </div>
+</div>
+
+<!--{include footer}-->

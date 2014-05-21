@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /static/
+Disallow: /order/
+Disallow: /leader/
+Disallow: /manage/
+Disallow: /forum/
+Disallow: /404.html
+Sitemap: http://www.shihewo.com/sitemap.html
+Sitemap: http://www.shihewo.com/sitemap.xml

@@ -1,0 +1,20 @@
+<!--{if $team}-->
+<div class="right_t"><h2><a href="/team/current.php">今日其他团购</a></h2></div>
+<div class="right_m">
+<div class="tip others">
+<h3><a href="/team.php?id={$team['id']}">${mb_strimwidth($one['title'],0,128,'...')}</a></h3>
+<p><a href="/team.php?id={$one['id']}"><img src="${team_image($team['image'], true)}" width="192" height="108" border="0" /></a></p>
+<p class="price">团购价: <span>{$currency}${$team['market_price']-$team['team_price']}</span> <br>原价: <s>{$currency}${moneyit($team['market_price'])}</s>  <br>折扣: ${team_discount($team)}折</p>			
+			<div class="others_btn">
+				<div class="now_num">已有 <strong>{$team['now_number']}</strong> 人购买</div>
+				<a href="/team.php?id={$one['id']}" title="{$one['title']}" target="_blank"><span>查看详情</span></a>
+			</div>
+			<div class="clear"></div>
+		<div class="hr" ></div>
+</div>
+</div>
+<div class="right_b"></div>
+
+
+
+<!--{/team}-->

@@ -1,0 +1,58 @@
+<!--{include manage_header}-->
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_market('index')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+			<div class=box-content>
+			<div class="head"><h2>新浪微博-{$_SESSION['prompt_name']}-{$_SESSION['sina_id']}</h2></div>
+			<div class="sect" style="padding:0 10px;">
+			<!-- {if isset($_SESSION['last_key'])} -->
+				<form method="post">
+				<p style="margin:5px 0;">
+				发布内容：<br><textarea rows="5" cols="120" name='blogcontent' class="h-input"></textarea>
+				</p>
+				<p style="margin:10px 0;">
+				转发可以获得金币：<input  type="text" name="goldcoin" class="h-input"></input>
+				截止时间：<input type="text" size="20" name="end_time" class="date" value="${date('Y-m-d H:i:s', $end_time)}" maxLength="10" onClick="WdatePicker()"/>
+				前x名：<input type="text" size="10" name="max_num" class="h-input number"></input>
+				<input type="submit" class="formbutton"  style="padding:1px 6px;"></input>
+				</p>
+				</form>
+			<!-- {/if} -->
+			</div>
+			<div class="sect">
+				<table class="coupons-table">
+				<tr>
+					<th width="30" align="center">编号</th>
+					<th width="30" align="center">新浪微博编号</th>
+					<th width="30" align="center">返金币</th>
+					<th width="30" align="center">发布时间</th>
+					<th width="600" align="center">内容</th>
+					<th width="100"></th>
+				</tr>
+				<!-- {loop $microblog $key $value} -->
+				<tr>
+				<td align="center">{$value['id']}</td> 
+				<td align="center">{$value['sina_id']}</td>
+				<td align="center">{$value['goldcoin']}</td>
+				<td align="center">{$value['publish_time']}</td>
+				<td align="center">{$value['content']}</td>
+				<td algin="center"><a href="/manage/market/weiboforward.php?id={$value['sina_id']}">查看转发情况</a></td>
+				</tr>
+				<!-- {/loop} -->
+				</table>
+				
+			</div>
+			</div>
+			<div class="box-bottom"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--{include manage_footer}-->

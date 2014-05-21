@@ -1,0 +1,15 @@
+<!--{include manage_html_header}-->
+<script type="text/javascript" src="/static/js/xheditor/xheditor.js"></script> 
+<div class="m_top">
+        <div class="m_top_up"><!--{if is_manager()}--><div class="r">你好 
+            {$login_user['realname']}，&raquo;&nbsp;<a href="/manage/logout.php">管理员退出</a></div><!--{/if}--><div class="l">欢迎使用适合我团购网管理系统</div></div>
+        <div class="m_top_down"><ul>${current_backend('super')}</ul></div>
+    </div>
+
+
+<!--{if $session_notice=Session::Get('notice',true)}-->
+<div class="sysmsgw" id="sysmsg-success"><div class="sysmsg"><p>{$session_notice}</p><span class="close">关闭</span></div></div> 
+<!--{/if}-->
+<!--{if $session_notice=Session::Get('error',true)}-->
+<div class="sysmsgw" id="sysmsg-error"><div class="sysmsg"><p>{$session_notice}</p><span class="close">关闭</span></div></div> 
+<!--{/if}-->

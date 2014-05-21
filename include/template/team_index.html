@@ -1,0 +1,25 @@
+<!--{include header_teamindex}-->
+<div class="topnav">${getTopCityBar();}</div>
+<script type="text/javascript" src="/static/js/jquery.lazyload.js"></script>
+<script type="text/javascript">
+<!--
+	jQuery(document).ready(function($){$("img").lazyload({effect:showeffect,failurelimit:10})});
+//-->
+</script>
+<div class="topad"><a target="_blank" href="/about/promise.php"></a><a target="_blank" href="/about/promise.php"></a><a target="_blank" href="about/promise.php"></a></div>
+<div class="two"><ul>
+        <!--{loop $teams $index $one}-->
+            <li class="item">
+<h2><a href="/team.php?id={$one['id']}" title="{$one['title']}" target="_blank"  hisefocus="true"><span>({$one['name']})</span>${mb_strimwidth($one['title'],0,86,'...')}</a></h2>
+<div class="img"><a href="/team.php?id={$one['id']}" title="{$one['title']}" target="_blank"  hisefocus="true"><img alt="{$one['title']}" original="${team_image($one['image'], true)}" src="/static/css/i/grey.gif" ></a></div>
+<div class="chakan">
+<div class="chakan_l"><a target="_blank" href="/team.php?id={$one['id']}" hisefocus="true">${moneyit($one['team_price'])}</a></div>
+<div class="chakan_r">原价：<span>{$currency}${moneyit($one['market_price'])}</span><br>折扣：<span>${team_discount($one)}折</span><br>节省：<span>{$currency}</span>${moneyit($one['market_price']-$one['team_price'])}</span></div>
+</div>
+<div class="renshu"><span>{$one['now_number']}</span>人已购买</div>
+</li><!--{/loop}--></ul>
+<div class="clear"></div>
+        
+</div>
+
+<!--{include footer}-->

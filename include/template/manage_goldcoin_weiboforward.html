@@ -1,0 +1,37 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul><?php echo mcurrent_market('index'); ?></ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>      
+			<div class=box-content>
+				<div class="head"><h2>新浪微博</h2></div>
+				<div class="sect">
+				<table class="coupons-table">
+				<tr>
+				<th width= "30">用户</th>
+				<th width= "30">转发号</th>
+				<th width = "30">获得金币</th>
+				</tr>
+				<!-- {loop $forwarddetail $key $value} -->
+					<tr>
+					<td>{$userinfo_detail[$value['user_id']]['email']}</td>
+					<td>{$value['forward_id']}</td>
+					<td>{$value['goldcoin']}</td>
+					</tr>
+				<!-- {/loop} -->
+				</table>
+				</div>
+			</div>
+			<div class="box-bottom"></div>
+			</div>
+</div>
+</div>
+</div>
+</div>
+<!--{include manage_footer}-->

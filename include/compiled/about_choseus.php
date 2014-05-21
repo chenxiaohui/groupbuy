@@ -1,0 +1,21 @@
+<?php include template("header_nohover");?>
+
+<div class="hy_box">
+        <div class="hy_left">
+            <div class="hy_left_a">
+            <ul>
+            <li ><a href="/about/us.php">关于我们</a></li><li><a href="/about/contact.php">联系我们</a></li><li class="len">为什么选择适合我</li><li><a href="/about/promise.php">保障承诺</a></li><li><a href="/help/faqs.php">帮助中心</a></li>
+            </ul>
+            </div>
+        <div class="hy_left_b">
+                <div class="hy_left_b_a"><div class="l">为什么选择适合我</div></div>
+                <div class="why_box"></div>
+            </div>
+            <div class="hy_left_c"></div>
+        </div>
+        <div class="hy_right">
+           <?php include template("block_side_about");?>
+        </div>
+    </div>
+
+<?php include template("footer");?>

@@ -1,0 +1,184 @@
+<?php include template("header_normalqa");?>
+<div class="hy_box">
+        <div class="hy_left">
+            <div class="hy_left_a">
+            <ul>
+            <li ><a href="/about/us.php">关于我们</a></li><li><a href="/about/contact.php">联系我们</a></li><li class="norlen"><a href="/about/choseus.php">为什么选择适合我</a></li><li><a href="/about/promise.php">保障承诺</a></li><li class="hov">帮助中心</li>
+            </ul>
+            </div>
+        <div class="hy_left_b">
+                <div class="hy_left_b_a hy_left_bg"><div class="l">帮助中心</div></div>
+                <div class="erji_nav"><ul><li><a href="/help/faqs.php">常见问答</a></li><li><a href="/help/tour.php">如何团购</a></li><li class="hover">如何付款</li></ul></div>
+                <div class="p_a" style="margin-top:40px"></div>
+                <div class="help_pay_online"></div>
+                <div class="p_b"></div>
+                <div class="help_pay_kefu"></div>
+                <div class="p_two_a">北京公司账号</div>
+                <table height="114" cellspacing="1" cellpadding="0" border="0" width="600"  class="p_tab">
+						  <tbody><tr>
+							<th  width="103">银行名称</th>
+							<th  width="142">开户行</th>
+							<th  width="90">户 名</th>
+							<th  width="187">账 号</th>
+							<th  width="70">咨询电话</th>
+						  </tr>
+						  <tr>
+						    <td bgcolor="">中国建设银行</td>
+						    <td bgcolor="#d2f0ff">北京三元支行</td>
+						    <td bgcolor="#d2f0ff">杨伟春</td>
+						    <td bgcolor="#d2f0ff">4367   4200   1164   0390   264</td>
+						    <td bgcolor="#d2f0ff">95533</td>
+					      </tr>
+						  <tr>
+							<td bgcolor="#e5f1f4">中国工商银行</td>
+							<td bgcolor="#e5f1f4">北京和平里支行</td>
+							<td bgcolor="#e5f1f4">杨伟春</td>
+							<td bgcolor="#e5f1f4">6222   0202   0003   2710   531</td>
+							<td bgcolor="#e5f1f4">95588</td>
+						  </tr>
+						  <tr>
+							<td bgcolor="#d2f0ff">中国农业银行</td>
+							<td bgcolor="#d2f0ff">北京青年湖支行</td>
+							<td bgcolor="#d2f0ff">杨伟春</td>
+							<td bgcolor="#d2f0ff">6228   4800   1043   8112   111</td>
+							<td bgcolor="#d2f0ff">95599</td>
+						  </tr>
+						  <tr>
+							<td bgcolor="#e5f1f4">中国银行</td>
+							<td bgcolor="#e5f1f4">北京安定门支行</td>
+							<td bgcolor="#e5f1f4">杨伟春</td>
+							<td bgcolor="#e5f1f4">6013   8201   0000   5828   366</td>
+							<td bgcolor="#e5f1f4">95566</td>
+						  </tr>
+						  <tr>
+							<td bgcolor="#d2f0ff">中国招商银行</td>
+							<td bgcolor="#d2f0ff">北京安定门支行</td>
+							<td bgcolor="#d2f0ff">杨伟春</td>
+							<td bgcolor="#d2f0ff">6225   8801   1651   1065</td>
+							<td bgcolor="#d2f0ff">95555</td>
+						  </tr>
+					  </tbody></table>
+					  <div class="p_two_a">上海公司账号</div><table height="105" cellspacing="1" cellpadding="0" border="0" width="600" class="p_tab">
+						  <tbody><tr>
+							<th  width="103">银行名称</th>
+							<th  width="142">开户行</th>
+							<th  width="90">户 名</th>
+							<th  width="187">账 号</th>
+							<th  width="70">咨询电话</th>
+						  </tr>
+						  <tr>
+						    <td bgcolor="#d2f0ff">中国工商银行</td>
+						    <td bgcolor="#d2f0ff">上海共和新支行</td>
+						    <td bgcolor="#d2f0ff">杨伟春</td>
+						    <td bgcolor="#d2f0ff">6222   0210   0104   4942   933</td>
+						    <td bgcolor="#d2f0ff">95588</td>
+					      </tr>
+					      <tr>
+						    <td bgcolor="#d2f0ff">中国招商银行</td>
+						    <td bgcolor="#d2f0ff">上海分行福州路支行</td>
+						    <td bgcolor="#d2f0ff">杨伟春</td>
+						    <td bgcolor="#d2f0ff">6225   8821   2039   8679</td>
+						    <td bgcolor="#d2f0ff">95555</td>
+					      </tr>
+					      <tr>
+						    <td bgcolor="#d2f0ff">中国建设银行</td>
+						    <td bgcolor="#d2f0ff">上海闸北支行</td>
+						    <td bgcolor="#d2f0ff">杨伟春</td>
+						    <td bgcolor="#d2f0ff">6227   0012   1588   0512   625</td>
+						    <td bgcolor="#d2f0ff">95533</td>
+					      </tr>
+					      <tr>
+						    <td bgcolor="#d2f0ff">中国农业银行</td>
+						    <td bgcolor="#d2f0ff">上海不夜城支行</td>
+						    <td bgcolor="#d2f0ff">杨伟春</td>
+						    <td bgcolor="#d2f0ff">6228   4800   3097   5406   213</td>
+						    <td bgcolor="#d2f0ff">95599</td>
+					      </tr>
+					  </tbody></table>
+					  <div class="p_two_a">南京公司账号</div>
+					  <table height="110" cellspacing="1" cellpadding="0" border="0" width="600" class="p_tab">
+						  <tbody><tr>
+							<th  width="103">银行名称</th>
+							<th  width="142">开户行</th>
+							<th  width="100">户 名</th>
+							<th  width="187">账 号</th>
+							<th  width="70">咨询电话</th>
+						  </tr>
+						  <tr>
+						    <td bgcolor="#d2f0ff">中国工商银行</td>
+						    <td bgcolor="#d2f0ff">南京市汉府支行</td>
+						    <td bgcolor="#d2f0ff">杨伟春</td>
+						    <td bgcolor="#d2f0ff">6222   0243   0101   0651   527</td>
+						    <td bgcolor="#d2f0ff">95588</td>
+					      </tr>
+						  <tr>
+							<td bgcolor="#e5f1f4">中国招商银行</td>
+							<td bgcolor="#e5f1f4">南京分行城南支行</td>
+							<td bgcolor="#e5f1f4">杨伟春</td>
+							<td bgcolor="#e5f1f4">6225   8812   5511   2863</td>
+							<td bgcolor="#e5f1f4">95555</td>
+						  </tr>
+                          <tr>
+						    <td bgcolor="#d2f0ff">中国建设银行</td>
+						    <td bgcolor="#d2f0ff">南京洪武支行</td>
+						    <td bgcolor="#d2f0ff">杨伟春</td>
+						    <td bgcolor="#d2f0ff">6227   0013   7501   0306   064</td>
+						    <td bgcolor="#d2f0ff">95533</td>
+					      </tr>
+						  <tr>
+							<td bgcolor="#e5f1f4">中国农业银行</td>
+							<td bgcolor="#e5f1f4">南京阳光支行</td>
+							<td bgcolor="#e5f1f4">杨伟春</td>
+							<td bgcolor="#e5f1f4">6228   4803   9272   5140   918</td>
+							<td bgcolor="#e5f1f4">95599</td>
+						  </tr>
+					  </tbody></table>
+                      <div class="p_c" style=" margin-top:30px"></div>
+                      <div class="p_two_a">北京公司·对公账户</div>
+                        <table  cellspacing="1" cellpadding="0" border="0" width="600" class="p_tab" >
+						  <tbody><tr>
+							<th  width="210">开户名称</th>
+							<th  width="220">开户银行</th>
+							<th  width="170">开户帐号</th>
+						  </tr>
+						  <tr>
+						    <td bgcolor="#d2f0ff">北京金牌国际旅行社有限公司</td>
+						    <td bgcolor="#d2f0ff">中国建设银行地坛支行</td>
+						    <td bgcolor="#d2f0ff">1100   1042   9000   5300   4023</td>
+					      </tr>
+					  </tbody></table>
+                    <div class="p_two_a">上海公司·对公账户</div>
+                        <table  cellspacing="1" cellpadding="0" border="0" width="600" class="p_tab" >
+						  <tbody><tr>
+							<th  width="210">开户名称</th>
+							<th  width="220">开户银行</th>
+							<th  width="170">开户帐号</th>
+						  </tr>
+						  <tr>
+						    <td bgcolor="#d2f0ff">上海金牌九舟国际旅行社有限公司</td>
+						    <td bgcolor="#d2f0ff">中国工商银行上海中兴支行</td>
+						    <td bgcolor="#d2f0ff">1001   2964   0930   0160   111 </td>
+					      </tr>
+					  </tbody></table>
+                    <div class="p_two_a">南京公司·对公账户</div>
+                        <table  cellspacing="1" cellpadding="0" border="0" width="600" class="p_tab" >
+						  <tbody><tr>
+							<th  width="210">开户名称</th>
+							<th  width="220">开户银行</th>
+							<th  width="170">开户帐号</th>
+						  </tr>
+						  <tr>
+						    <td bgcolor="#d2f0ff">南京金牌旅行社有限公司</td>
+						    <td bgcolor="#d2f0ff">招商银行股份有限公司南京城南支行</td>
+						    <td bgcolor="#d2f0ff">0779   6125   9041   7911   0603</td>
+					      </tr>
+					  </tbody></table>
+            </div>
+            <div class="hy_left_c"></div>
+        </div>
+        <div class="hy_right">
+           <?php include template("block_side_about");?>
+        </div>
+    </div>
+
+<?php include template("footer");?>

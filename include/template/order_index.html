@@ -1,0 +1,67 @@
+<!--{include header}-->
+
+
+<div class="hy_box">
+	
+    <div id="content" class="coupons-box clear">
+		
+             <div class="hy_left_a">
+		<ul>${current_account('/order/index.php')}</ul>
+            </div>
+            <div class="hy_left_b">
+                <div class="head">
+                    <h2>我的订单</h2>
+                    <ul class="filter">
+						<li class="label">分类: </li>
+						${current_order_index($selector)}
+					</ul>
+				</div>
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table" width="100%">
+						<tr><th width="55%">项目名称</th><th width="6%">数量</th><th width="10%">总价</th><th width="10%">状态</th><th width="19%">操作</th></tr>
+					<!--{loop $orders $index $one}-->
+						<tr ${$index%2?'':'class="alt"'}>
+							<td style="text-align:left;"><a class="deal-title" href="/team.php?id={$one['team_id']}" target="_blank">{$teams[$one['team_id']]['title']}</a></td>
+							<td>{$one['quantity']}</td>
+							<td><span class="money">{$currency}</span>${moneyit($one['origin'])}</td>
+							<td>
+							<!--{if $one['state']=='pay'}-->
+								已付款
+							<!--{elseif $one['state']=='timeout'}-->
+								已过期
+							<!--{elseif $one['state']=='halfpay' && $one['service']='bookgold'}  -->
+								付订金
+							<!-- {elseif $one['service'] == 'telbook'} -->
+								预约成功
+							<!--{else}-->
+								未付款
+							<!--{/if}-->
+							<!--{/if}-->
+							</td>
+							<td class="op">
+								<!--{if ($one['state']=='unpay'&&$teams[$one['team_id']]['close_time']==0 && $one['state'] != 'telbook')}-->
+									<a href="/order/check.php?id={$one['id']}">付款</a>
+								<!--{elseif $one['state']=='pay'  || $one['service'] == 'telbook'}-->
+									<a href="/order/view.php?id={$one['id']}">详情</a>&nbsp;|&nbsp;
+									<!-- {if $one['service'] != 'telbook'} -->
+										<a href="/order/ajax.php?action=ordercomment&id={$one['id']}" class="ajaxlink">${$one['comment_time'] ? $option_commentgrade[$one['comment_grade']] : '点评'}</a>
+									<!-- {/if} -->
+								<!-- {elseif $one['state'] =='halfpay'} -->
+									<a href="/order/view.php?id={$one['id']}">详情</a>
+								<!--{/if}-->
+							</td>
+						</tr>
+					<!--{/loop}-->
+						<tr><td colspan="5">{$pagestring}</td></tr>
+                    </table>
+				</div>
+            </div>
+             <div class="hy_left_c"></div>
+
+    </div>
+    <div class="hy_right">
+		<!--{include block_side_aboutorder}-->
+    </div>
+</div>
+
+<!--{include footer}-->

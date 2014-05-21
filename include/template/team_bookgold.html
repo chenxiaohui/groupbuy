@@ -1,0 +1,66 @@
+<!--{include header_nohover}-->
+<script src="/static/js/datepicker/WdatePicker.js" type="text/javascript"></script>
+<form class="ty_main" method="POST">
+        <div class="ty_left">
+        <div class="ty_left_t2">余款参团时付给导游</div>
+        <div class="ty_left_m">预订金支付</div>
+        <input type="hidden" id="team_id" value="{$team['id']}">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="ty_left_tab" >
+            <tbody><tr>
+            <th width="60%" >商品名称</th><th width="10%">预订金</th><th></th><th width="10%">成人数</th><th></th><th width="10%">总计</th>
+            </tr>
+           	<tr>
+           		<td><span id="title">{$team['title']}</span></td>
+           		<td class="jg"><span class="money">{$currency}</span><span id="book_price">{$team['goldbook']}</span></td>
+            	<td>x</td>
+            	<td class="yunsuan">
+                 	<input type="text" class="input-text f-input" maxlength="4" name="adult_num" value="{$order['adult_num']}" id="book_adult_num" />
+            	</td>
+            	<td>=</td>
+            	<td class="zj"><span class="money">{$currency}</span><span id="book_total">{$order['adult_num']*$team['goldbook']}</span></td>
+            </tr>            
+            </tbody>
+        </table>
+            <div class="total-price">应付总额：<span class="money">{$currency}</span><strong id="pay_total">{$order['adult_num'] * $team['goldbook']}</strong></div>
+        <input type="hidden" id ="per_number" value="{$team['per_number']}"/>
+        
+        <div class="heng_line"></div>
+        <div class="heng"><label>联系人姓名：</label><input type="text" id="lxrxm" name="realname" value="{$order['realname']}" datatype="require" require="true"></div>
+        <div class="heng"><label>联系人电话：</label><input type="text" id="lxrdh" name="mobile" value="{$order['mobile']}" datatype="require" require="true"></div>
+        <div class="heng_line"></div>
+        <div class="heng"><label>参团日期：</label>
+        <input type="text" id="ctrq" class="Wdate" onfocus="WdatePicker({minDate:'%y-%M-#{%d+1}'})" name="traveltime" value="${date('Y-m-d',$order['traveltime'])}"></div>
+             <div class="heng"><label>团类语种：</label>
+	        <div class="select">
+		        <select id="team_lang"  name="team_lang">
+		        	<!-- {loop $pricelist $key $value} -->     	
+		        	<option	value={$value} {$lang_select[$value]}>{$key}</option>
+		        	<!-- {/loop} -->
+				</select>
+			</div>
+		</div>
+         <div class="heng"><label>住宿标准：</label>
+	        <div class="select">
+	        	<select id="hotellevel" name="hotellevel">
+	        		<!-- {loop $hotellevellist $key $value} -->
+			        <option value={$value} {$level_select[$key]}> {$key}</option>       
+		        	<!-- {/loop} -->
+				</select>
+			</div>
+		</div>
+		 <input type="hidden" id="team_price_id" name="team_price_id" value="{$order['team_price_id']}"></input>
+        <div class="heng">
+	        <label>参团人数：</label>
+	        <label class="p">成人=</label><label class="p"><span  id="book_adult_num2">{$order['adult_num']}</span>人</label>
+	        <label class="p">儿童=</label><input type="text" id="book_child_num" class="w" name="child_num" value="{$order['child_num']}">
+        	<span style="font-size:12px;color:red; display:block">(提示:总数不能超过{$team['per_number']})</span>
+        </div>
+        <div class="hengl"><label>备注说明：</label><textarea id="beizhu" name="remark" >{$order['remark']}</textarea></div>
+        <input type="submit" id="booksubmit" class="telbook" value=""/>
+        </form>
+        <div class="ty_right">
+            <div class="baozh_t">支付保障</div>
+            <div class="baozh_c">适合我团购网采用支付宝和网上银行两种方式进行支付，最大程度保证用户的交易安全</div>
+        </div>
+</div>
+<!--{include footer}-->

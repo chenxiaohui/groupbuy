@@ -1,0 +1,18 @@
+
+	<div class="hy_right_a"></div>
+	<div class="hy_right_b">
+		<div class="credit">
+			<h2>积分规则</h2>
+			<p>用户注册：+${abs(intval($INI['credit']['register']))}</p>
+			<p>用户登录：+${abs(intval($INI['credit']['login']))}</p>
+			<p>参与团购：x${abs(intval($INI['credit']['buy'])) * 100}%</p>
+			<p>邀请好友：+${abs(intval($INI['credit']['invite']))}</p>
+			<!-- {if $INI['credit']['pay']>0} -->
+			<p>购买返积比例：${moneyit($INI['credit']['pay'])}</p>
+			<!--  {/if}-->
+			<!-- {if $INI['credit']['charge']>0} -->
+			<p>充值返积比例：${moneyit($INI['credit']['charge'])}</p>
+			<!--  {/if}-->
+		</div>
+	</div>
+	<div class="hy_right_c"></div>

@@ -1,0 +1,1 @@
+ <?php echo usercomment($teamcomments); ?>
